@@ -146,7 +146,7 @@ public class Oval extends AbstractShape {
    * @return type of the shape in String format
    */
   @Override
-  public String getType() {
-    return "oval";
+  public ShapeType getType() {
+    return ShapeType.OVAL;
   }
 }

@@ -44,7 +44,7 @@ public interface IAnimation {
    *
    * @return the type of the animation in String format
    */
-  String getType();
+  AnimationType getType();
 
   /**
    * Get a list of float of information in the animation.

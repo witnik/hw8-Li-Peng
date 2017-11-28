@@ -25,7 +25,7 @@ public final class EasyAnimator {
    */
   public static void main(String[] args) {
     // FILL IN HERE
-    String fileName = "/Users/david.li/Documents/CS3500HW/code5-1-master/resources/buildings.txt";
+    String fileName = "/Users/TomPeng/Documents/github/hw8-Li-Peng/resources/buildings.txt";
     String viewType = "interactive";
     String outPutFile = "System.out";
     int tickPerSecond = 10;

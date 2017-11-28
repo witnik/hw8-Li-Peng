@@ -11,9 +11,11 @@ import java.util.Comparator;
 import javax.swing.Timer;
 import javax.swing.JPanel;
 
+import cs3500.hw.model.AnimationType;
 import cs3500.hw.model.IAnimation;
 import cs3500.hw.model.IAnimationModel;
 import cs3500.hw.model.Shape;
+import cs3500.hw.model.ShapeType;
 
 
 /**
@@ -83,10 +85,10 @@ public class AnimationPanel extends JPanel implements ActionListener {
         if (s.getName().equals(temp.getName())
                 && currentTime >= a.getStart()
                 && currentTime <= a.getEnd()) {
-          if (a.getType().equals("move")) {
+          if (a.getType().equals(AnimationType.MOVE)) {
             x = s.getX() + (a.getInfo()[0] - s.getX()) / (float) (a.getEnd() - currentTime + 1);
             y = s.getY() + (a.getInfo()[1] - s.getY()) / (float) (a.getEnd() - currentTime + 1);
-          } else if (a.getType().equals("scale")) {
+          } else if (a.getType().equals(AnimationType.SCALE)) {
             width = s.getWidth() + (a.getInfo()[0] - s.getWidth())
                     / (float) (a.getEnd() - currentTime + 1);
             height = s.getHeight() + (a.getInfo()[1] - s.getHeight())
@@ -103,7 +105,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
       }
       if (currentTime <= s.getDisappears()
               && currentTime >= s.getAppears()
-              && s.getType().equals("rect")) {
+              && s.getType().equals(ShapeType.RECTANGLE)) {
         g.setColor(new Color(red, green, blue));
         g.fillRect(Math.round(x), Math.round(y), Math.round(width), Math.round(height));
         shapes.set(i, s.setShape(s.getName(), x, y, width,
@@ -111,7 +113,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
       }
       if (currentTime <= s.getDisappears()
               && currentTime >= s.getAppears()
-              && s.getType().equals("oval")) {
+              && s.getType().equals(ShapeType.OVAL)) {
         g.setColor(new Color(red, green, blue));
         g.fillOval(Math.round(x), Math.round(y), Math.round(width), Math.round(height));
         shapes.set(i, s.setShape(s.getName(), x, y, width,
@@ -199,7 +201,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
       String xLen;
       String yLen;
       String tempResult = "";
-      if (s.getType().equals("rect")) {
+      if (s.getType().equals(ShapeType.RECTANGLE)) {
         start = String.format("<rect id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\"" +
                         " fill=\"rgb(%d,%d,%d)\" visibility=\"hidden\" >\n", s.getName(),
                 Math.round(s.getX()), Math.round(s.getY()),
@@ -237,7 +239,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
               "hidden\" begin=\"%dms\"/>\n", s.getDisappears() * 1000 / this.tick);
 
       for (IAnimation m : allInstructions) {
-        if (m.getType().equals("move")) {
+        if (m.getType().equals(AnimationType.MOVE)) {
           int x = Math.round(m.getInfo()[0]);
           int y = Math.round(m.getInfo()[1]);
           tempResult += String.format("<animate attributeType=\"xml\" begin=\"%dms\" " +
@@ -259,7 +261,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
             s = s.setShape(s.getName(), (float) x, (float) y, s.getWidth(), s.getHeight(),
                     s.getRed(), s.getGreen(), s.getBlue(), s.getAppears(), s.getDisappears());
           }
-        } else if (m.getType().equals("changecolor")) {
+        } else if (m.getType().equals(AnimationType.CHANGECOLOR)) {
           float red = m.getInfo()[0];
           float green = m.getInfo()[1];
           float blue = m.getInfo()[2];
@@ -324,7 +326,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
       String xLen;
       String yLen;
       String tempResult = "";
-      if (s.getType().equals("rect")) {
+      if (s.getType().equals(ShapeType.RECTANGLE)) {
         start = String.format("<rect id=\"%s\" x=\"%d\" y=\"%d\" width=\"%d\" height=\"%d\"" +
                         " fill=\"rgb(%d,%d,%d)\" visibility=\"hidden\" >\n", s.getName(),
                 Math.round(s.getX()), Math.round(s.getY()),
@@ -380,7 +382,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
               "hidden\" begin=\"base.begin+%dms\"/>\n", s.getDisappears() * 1000 / this.tick);
 
       for (IAnimation m : allInstructions) {
-        if (m.getType().equals("move")) {
+        if (m.getType().equals(AnimationType.MOVE)) {
           int x = Math.round(m.getInfo()[0]);
           int y = Math.round(m.getInfo()[1]);
           tempResult += String.format("<animate attributeType=\"xml\" begin=\"base.begin+%dms\" " +
@@ -402,7 +404,7 @@ public class AnimationPanel extends JPanel implements ActionListener {
             s = s.setShape(s.getName(), (float) x, (float) y, s.getWidth(), s.getHeight(),
                     s.getRed(), s.getGreen(), s.getBlue(), s.getAppears(), s.getDisappears());
           }
-        } else if (m.getType().equals("changecolor")) {
+        } else if (m.getType().equals(AnimationType.CHANGECOLOR)) {
           float red = m.getInfo()[0];
           float green = m.getInfo()[1];
           float blue = m.getInfo()[2];

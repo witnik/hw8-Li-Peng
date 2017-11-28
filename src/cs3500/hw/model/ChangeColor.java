@@ -52,8 +52,8 @@ public class ChangeColor extends AbstractAnimation {
    * @return the type of the animation in String format
    */
   @Override
-  public String getType() {
-    return "changecolor";
+  public AnimationType getType() {
+    return AnimationType.CHANGECOLOR;
   }
 
   /**

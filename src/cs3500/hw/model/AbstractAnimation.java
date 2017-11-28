@@ -51,11 +51,11 @@ public abstract class AbstractAnimation implements IAnimation {
   }
 
   /**
-   * Get the type of the animation in String format.
+   * Get the type of the animation.
    *
-   * @return the type of the animation in String format
+   * @return the type of the animation.
    */
-  public abstract String getType();
+  public abstract AnimationType getType();
 
   /**
    * Get a list of float of information in the animation.

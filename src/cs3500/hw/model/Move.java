@@ -48,8 +48,8 @@ public class Move extends AbstractAnimation {
    * @return the type of the animation in String format
    */
   @Override
-  public String getType() {
-    return "move";
+  public AnimationType getType() {
+    return AnimationType.MOVE;
   }
 
   /**

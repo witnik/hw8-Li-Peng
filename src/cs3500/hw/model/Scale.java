@@ -57,8 +57,8 @@ public class Scale extends AbstractAnimation {
    * @return the type of the animation in String format
    */
   @Override
-  public String getType() {
-    return "scale";
+  public AnimationType getType() {
+    return AnimationType.SCALE;
   }
 
   /**

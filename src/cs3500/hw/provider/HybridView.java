@@ -51,7 +51,7 @@ public class HybridView extends JFrame implements IView {
   public HybridView(double ticksPerSecond, IAnimation model, String outputFile) {
     super();
     this.ticksPerSecond = ticksPerSecond;
-    this.controller = new AnimationController(model, this.ticksPerSecond);
+    //this.controller = new AnimationController(model, this.ticksPerSecond);
 
     this.setLayout(new BorderLayout());
 

@@ -130,6 +130,13 @@ public interface Shape {
   float getBlue();
 
   /**
+   * get the type of this shape;
+   *
+   * @return the type of this shape in string.
+   */
+  ShapeType getType();
+
+  /**
    * To get another shape with the same type as the Shape object.
    *
    * @param name the name of the object
@@ -145,13 +152,6 @@ public interface Shape {
    * @return the new shape that is being constructed
    */
   Shape setShape(String name, float x, float y,
-                float width, float height, float cRed,
-                float cGreen, float cBlue, int appears, int disappears);
-
-  /**
-   * Get the type of the shape and return it in String.
-   *
-   * @return type of the shape in String format
-   */
-  String getType();
+                 float width, float height, float cRed,
+                 float cGreen, float cBlue, int appears, int disappears);
 }
