@@ -1,0 +1,37 @@
+<svg width="700" height="500" version="1.1"
+    xmlns="http://www.w3.org/2000/svg">
+<rect>
+   <animate id="base" begin="0;base.end" dur="10000ms" attributeName="visibility" from="hide" to="hide"/>
+</rect><rect id="R" x="200" y="200" width="50" height="100" fill="rgb(255,0,0)" visibility="hidden" >
+<set attributeName="visibility" attributeType="CSS" to="visible" begin="base.begin+100ms"/>
+<set attributeName="visibility" attributeType="CSS" to="hidden" begin="base.begin+10000ms"/>
+<animate attributeType="xml" begin="base.begin+1000ms" dur="4000ms" attributeName="x" from="200" to="300" fill="freeze" />
+<animate attributeType="xml" begin="base.begin+1000ms" dur="4000ms" attributeName="y" from="200" to="300" fill="freeze" />
+<animate attributeType="XML" attributeName="width" from="50" to="25"
+ dur="1900ms" begin="base.begin+5100ms" repeatCount="0" fill="freeze" />
+<animate attributeType="XML" attributeName="height" from="100" to="100"
+ dur="1900ms" begin="base.begin+5100ms" repeatCount="0" fill="freeze" />
+<animate attributeType="xml" begin="base.begin+7000ms" dur="3000ms" attributeName="x" from="300" to="200" fill="freeze" />
+<animate attributeType="xml" begin="base.begin+7000ms" dur="3000ms" attributeName="y" from="300" to="200" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="x" to="200" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="y" to="200" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="width" to="50" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="height" to="100" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="fill" to="rgb(255,0,0)" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="visibility" to="hide" />
+</rect>
+<ellipse id="C" cx="500" cy="100" rx="60" ry="30" fill="rgb(0,0,255)" visibility="hidden" >
+<set attributeName="visibility" attributeType="CSS" to="visible" begin="base.begin+600ms"/>
+<set attributeName="visibility" attributeType="CSS" to="hidden" begin="base.begin+10000ms"/>
+<animate attributeType="xml" begin="base.begin+2000ms" dur="5000ms" attributeName="cx" from="500" to="500" fill="freeze" />
+<animate attributeType="xml" begin="base.begin+2000ms" dur="5000ms" attributeName="cy" from="100" to="400" fill="freeze" />
+<animate attributeType="XML" attributeName="fill" from="rgb(0,0,255)" to="rgb(0,255,0)"
+ dur="3000ms" begin="base.begin+5000ms" repeatCount="0" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="cx" to="500" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="cy" to="100" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="rx" to="60" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="ry" to="30" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="fill" to="rgb(0,0,255)" fill="freeze" />
+<animate attributeType="xml" begin="base.end" dur="1ms" attributeName="visibility" to="hide" />
+</ellipse>
+</svg>
