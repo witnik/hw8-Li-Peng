@@ -1,4 +1,4 @@
-package cs3500.hw.provider;
+package cs3500.animator.view;
 
 import java.awt.Graphics2D;
 import java.awt.BorderLayout;
@@ -26,10 +26,12 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import cs3500.hw.controller.AnimationController;
-import cs3500.hw.provider.IAnimationController;
-import cs3500.hw.provider.IAnimation;
-import cs3500.hw.provider.IShape;
+import cs3500.animator.controller.IAnimationController;
+import cs3500.animator.controller.AnimationController;
+import cs3500.animator.model.IAnimation;
+import cs3500.animator.model.IShape;
+import cs3500.animator.model.Shape;
+import cs3500.animator.model.ShapeType;
 
 /**
  * Created by Evan on 11/8/2017.
@@ -51,7 +53,7 @@ public class HybridView extends JFrame implements IView {
   public HybridView(double ticksPerSecond, IAnimation model, String outputFile) {
     super();
     this.ticksPerSecond = ticksPerSecond;
-    //this.controller = new AnimationController(model, this.ticksPerSecond);
+    this.controller = new AnimationController(model, this.ticksPerSecond);
 
     this.setLayout(new BorderLayout());
 
