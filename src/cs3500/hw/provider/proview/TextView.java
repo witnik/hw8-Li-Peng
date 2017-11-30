@@ -1,11 +1,11 @@
-package cs3500.hw.provider;
+package cs3500.hw.provider.proview;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
 import javax.swing.JOptionPane;
 
-import cs3500.hw.provider.IAnimation;
+import cs3500.hw.provider.promodel.IAnimation;
 
 /**
  * Created by Evan on 10/25/2017.

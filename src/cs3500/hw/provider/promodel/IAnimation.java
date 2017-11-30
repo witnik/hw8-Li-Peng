@@ -1,4 +1,4 @@
-package cs3500.hw.provider;
+package cs3500.hw.provider.promodel;
 
 import java.util.List;
 

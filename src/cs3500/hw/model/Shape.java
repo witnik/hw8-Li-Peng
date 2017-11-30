@@ -134,7 +134,7 @@ public interface Shape {
    *
    * @return the type of this shape in string.
    */
-  ShapeType getType();
+  cs3500.hw.model.ShapeType getType();
 
   /**
    * To get another shape with the same type as the Shape object.

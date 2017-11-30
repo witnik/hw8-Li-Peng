@@ -1,4 +1,4 @@
-package cs3500.hw.provider;
+package cs3500.hw.provider.proview;
 
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
@@ -6,9 +6,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import cs3500.hw.provider.IAction;
-import cs3500.hw.provider.IAnimation;
-import cs3500.hw.provider.IShape;
+import cs3500.hw.provider.promodel.IAction;
+import cs3500.hw.provider.promodel.IAnimation;
+import cs3500.hw.provider.promodel.IShape;
+import cs3500.hw.provider.promodel.ShapeType;
 
 /**
  * Created by Evan on 10/25/2017.

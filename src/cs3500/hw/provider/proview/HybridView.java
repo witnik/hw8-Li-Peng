@@ -1,4 +1,4 @@
-package cs3500.animator.view;
+package cs3500.hw.provider.proview;
 
 import java.awt.Graphics2D;
 import java.awt.BorderLayout;
@@ -26,12 +26,10 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import cs3500.animator.controller.IAnimationController;
-import cs3500.animator.controller.AnimationController;
-import cs3500.animator.model.IAnimation;
-import cs3500.animator.model.IShape;
-import cs3500.animator.model.Shape;
-import cs3500.animator.model.ShapeType;
+import cs3500.hw.provider.promodel.IAnimation;
+import cs3500.hw.provider.promodel.IShape;
+import cs3500.hw.provider.promodel.ShapeType;
+import cs3500.hw.provider.procontroller.IAnimationController;
 
 /**
  * Created by Evan on 11/8/2017.

@@ -1,5 +1,7 @@
 package cs3500.hw.model;
 
+import java.awt.*;
+
 public class Oval extends AbstractShape {
 
   private String name;

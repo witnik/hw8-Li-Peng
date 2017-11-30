@@ -1,5 +1,7 @@
 package cs3500.hw.model;
 
+import java.awt.*;
+
 /**
  * This class extends from the AbstractShape class. This class inherent most the method and creates
  * a Rectangle object.

@@ -1,9 +1,5 @@
 package cs3500.hw.model;
 
-import java.awt.*;
-
-import cs3500.hw.provider.IShape;
-
 /**
  * This is an abstract class that implements the Shape interface.
  */
@@ -231,6 +227,7 @@ public abstract class AbstractShape implements Shape {
   public float getBlue() {
     return this.cBlue;
   }
+
 
   /**
    * To get another shape with the same type as the Shape object.

@@ -1,4 +1,4 @@
-package cs3500.hw.provider;
+package cs3500.hw.provider.proview;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
@@ -14,9 +14,9 @@ import javax.swing.JScrollPane;
 import javax.swing.WindowConstants;
 import javax.swing.Timer;
 
-import cs3500.hw.provider.IAnimation;
-import cs3500.hw.provider.IShape;
-import cs3500.hw.provider.ShapeType;
+import cs3500.hw.provider.promodel.IAnimation;
+import cs3500.hw.provider.promodel.IShape;
+import cs3500.hw.provider.promodel.ShapeType;
 
 /**
  * Created by Evan on 10/25/2017.

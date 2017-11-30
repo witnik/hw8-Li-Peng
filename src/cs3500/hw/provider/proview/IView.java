@@ -1,4 +1,4 @@
-package cs3500.hw.provider;
+package cs3500.hw.provider.proview;
 
 /**
  * Created by Evan on 10/25/2017.
