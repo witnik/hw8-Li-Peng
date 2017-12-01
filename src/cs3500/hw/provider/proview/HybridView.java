@@ -30,6 +30,7 @@ import cs3500.hw.provider.procontroller.IAnimationController;
 import cs3500.hw.provider.promodel.IAnimation;
 import cs3500.hw.provider.promodel.IShape;
 import cs3500.hw.provider.promodel.ShapeType;
+import cs3500.hw.provider.procontroller.AnimationController;
 
 /**
  * Created by Evan on 11/8/2017.
@@ -48,11 +49,10 @@ public class HybridView extends JFrame implements IView {
    * @param model IAnimation to be animated
    * @param outputFile name of file to export SVG to
    */
-  public HybridView(double ticksPerSecond, IAnimation model, String outputFile,
-                    IAnimationController controller) {
+  public HybridView(double ticksPerSecond, IAnimation model, String outputFile) {
     super();
     this.ticksPerSecond = ticksPerSecond;
-    this.controller = controller;
+    this.controller = new AnimationController(model, this.ticksPerSecond);
 
     this.setLayout(new BorderLayout());
 
@@ -156,6 +156,8 @@ public class HybridView extends JFrame implements IView {
     this.revalidate();
     this.setVisible(true);
     this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+    //added
+    this.setResizable(true);
   }
 
   /**

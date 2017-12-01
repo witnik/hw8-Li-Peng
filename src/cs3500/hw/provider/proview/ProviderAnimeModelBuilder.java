@@ -11,7 +11,7 @@ public class ProviderAnimeModelBuilder extends AnimeModelBuilder{
   /**
    * This is the constructor for AnimeModelBuilder.
    */
-  ProviderAnimeModelBuilder() {
+  public ProviderAnimeModelBuilder() {
     super();
     this.model = new AnimationModel();
   }

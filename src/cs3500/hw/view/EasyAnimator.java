@@ -8,6 +8,8 @@ import cs3500.hw.controller.SVGController;
 import cs3500.hw.controller.TextController;
 import cs3500.hw.controller.VisualController;
 import cs3500.hw.model.AnimationModel;
+import cs3500.hw.provider.promodel.IAnimationAdapter;
+import cs3500.hw.provider.proview.ProviderAnimeModelBuilder;
 
 /**
  * this class represent an animator, which is used to run an animation. main method will take in
@@ -25,8 +27,8 @@ public final class EasyAnimator {
    */
   public static void main(String[] args) {
     // FILL IN HERE
-    String fileName = "/Users/TomPeng/Documents/github/hw8-Li-Peng/resources/buildings.txt";
-    String viewType = "interactive";
+    String fileName = "/Users/david.li/Documents/CS3500 HW/code 5/hw8-Li-Peng/resources/buildings.txt";
+    String viewType = "provider";
     String outPutFile = "System.out";
     int tickPerSecond = 10;
     IView view = new TextualView("", 1);
@@ -111,7 +113,19 @@ public final class EasyAnimator {
       InteractiveController controller = new InteractiveController(model, (HybridView) view);
       controller.setOutPutFile(outPutFile);
       controller.execute();
-    } else {
+    }
+    else if (viewType.compareToIgnoreCase("provider") == 0) {
+      try {
+        model = fileReader.readFile(fileName, new ProviderAnimeModelBuilder());
+      } catch (FileNotFoundException e) {
+        e.printStackTrace();
+      }
+      cs3500.hw.provider.proview.IView providerView;
+      providerView = new cs3500.hw.provider.proview.HybridView((double)tickPerSecond,
+              new IAnimationAdapter(model), outPutFile);
+      providerView.outputAnimation();
+    }
+    else {
       view.showError("Input view Type is invalid");
       System.exit(-1);
     }
