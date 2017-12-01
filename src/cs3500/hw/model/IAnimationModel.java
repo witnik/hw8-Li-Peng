@@ -81,6 +81,14 @@ public interface IAnimationModel {
   ArrayList<IAnimation> getAnimation();
 
   /**
+   * This method gets the Shape object in the model with the given name.
+   *
+   * @param name the name of the Shape object that are being extracted
+   * @return the Shape object with the given name
+   */
+  Shape getShape(String name);
+
+  /**
    * This method makes a copy of the existing AnimationModel to make sure when the model is being
    * used in other places, the model itself will not be altered be accident.
    *

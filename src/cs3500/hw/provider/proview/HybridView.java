@@ -26,10 +26,10 @@ import javax.swing.WindowConstants;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import cs3500.hw.provider.procontroller.IAnimationController;
 import cs3500.hw.provider.promodel.IAnimation;
 import cs3500.hw.provider.promodel.IShape;
 import cs3500.hw.provider.promodel.ShapeType;
-import cs3500.hw.provider.procontroller.IAnimationController;
 
 /**
  * Created by Evan on 11/8/2017.
@@ -48,10 +48,11 @@ public class HybridView extends JFrame implements IView {
    * @param model IAnimation to be animated
    * @param outputFile name of file to export SVG to
    */
-  public HybridView(double ticksPerSecond, IAnimation model, String outputFile) {
+  public HybridView(double ticksPerSecond, IAnimation model, String outputFile,
+                    IAnimationController controller) {
     super();
     this.ticksPerSecond = ticksPerSecond;
-    this.controller = new AnimationController(model, this.ticksPerSecond);
+    this.controller = controller;
 
     this.setLayout(new BorderLayout());
 

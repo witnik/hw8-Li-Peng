@@ -182,7 +182,20 @@ public abstract class AbstractShape implements Shape {
       Scale temp = (Scale) a;
       for (int i = temp.start - this.appears; i <= temp.end - this.appears; i++) {
         if (animationsScale[i] != null) {
-          return false;
+          Scale s = (Scale) animationsScale[i];
+          if(s.getInfo()[0] == 0 && temp.getInfo()[1] == 0 &&
+                  temp.start == s.start && temp.end == s.end) {
+            animationsScale[i] = new Scale(temp.getShape(), temp.getInfo()[0], s.getInfo()[1],
+                    temp.getStart(), temp.getEnd());
+          }
+          else if (s.getInfo()[1] == 0 && temp.getInfo()[0] == 0 &&
+                  temp.start == s.start && temp.end == s.end) {
+            animationsScale[i] = new Scale(temp.getShape(), s.getInfo()[0], temp.getInfo()[1],
+                    temp.getStart(), temp.getEnd());
+          }
+          else {
+            return false;
+          }
         }
       }
       for (int i = temp.start - this.appears; i <= temp.end - this.appears; i++) {

@@ -11,7 +11,7 @@ public class ChangeColor extends AbstractAnimation {
   private float green;
 
   /**
-   * This is the contructor of the ChangeColor class.
+   * This is the constructor of the ChangeColor class.
    *
    * @param s     the Shape obejct this animation will take place on
    * @param red   the red data of the color this animation will change to

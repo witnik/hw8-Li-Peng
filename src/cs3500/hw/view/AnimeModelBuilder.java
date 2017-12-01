@@ -14,7 +14,7 @@ public class AnimeModelBuilder implements TweenModelBuilder<AnimationModel> {
   /**
    * This is the constructor for AnimeModelBuilder.
    */
-  AnimeModelBuilder() {
+  public AnimeModelBuilder() {
     this.model = new AnimationModel();
   }
 
@@ -23,7 +23,7 @@ public class AnimeModelBuilder implements TweenModelBuilder<AnimationModel> {
    *
    * @param model model that will be construct
    */
-  AnimeModelBuilder(AnimationModel model) {
+  public AnimeModelBuilder(AnimationModel model) {
     this.model = model;
   }
 
