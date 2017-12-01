@@ -148,7 +148,7 @@ public class SvgView implements IView {
             sb.append(a.getStart() / ticksPerSecond * 1000);
             sb.append("ms\" dur=\"");
             sb.append((a.getEnd() - a.getStart()) / ticksPerSecond * 1000);
-            sb.append("\" attributeName=\"");
+            sb.append("ms\" attributeName=\"");
             if (s.getType() == ShapeType.OVAL) {
               sb.append("c");
             }
@@ -165,7 +165,7 @@ public class SvgView implements IView {
             sb.append(a.getStart() / ticksPerSecond * 1000);
             sb.append("ms\" dur=\"");
             sb.append((a.getEnd() - a.getStart()) / ticksPerSecond * 1000);
-            sb.append("\" attributeName=\"");
+            sb.append("ms\" attributeName=\"");
             if (s.getType() == ShapeType.OVAL) {
               sb.append("c");
             }
@@ -183,7 +183,7 @@ public class SvgView implements IView {
             sb.append(a.getStart() / ticksPerSecond * 1000);
             sb.append("ms\" dur=\"");
             sb.append((a.getEnd() - a.getStart()) / ticksPerSecond * 1000);
-            sb.append("\" attributeName=\"");
+            sb.append("ms\" attributeName=\"");
             if (s.getType() == ShapeType.OVAL) {
               sb.append("rx");
             } else if (s.getType() == ShapeType.RECTANGLE) {
@@ -203,7 +203,7 @@ public class SvgView implements IView {
             sb.append(a.getStart() / ticksPerSecond * 1000);
             sb.append("ms\" dur=\"");
             sb.append((a.getEnd() - a.getStart()) / ticksPerSecond * 1000);
-            sb.append("\" attributeName=\"fill\" from=\"rgb(");
+            sb.append("ms\" attributeName=\"fill\" from=\"rgb(");
             sb.append(s.getColor().getRed());
             sb.append(",");
             sb.append(s.getColor().getGreen());
@@ -225,7 +225,7 @@ public class SvgView implements IView {
             sb.append(a.getStart() / ticksPerSecond * 1000);
             sb.append("ms\" dur=\"");
             sb.append((a.getEnd() - a.getStart()) / ticksPerSecond * 1000);
-            sb.append("\" attributeName=\"");
+            sb.append("ms\" attributeName=\"");
             if (s.getType() == ShapeType.OVAL) {
               sb.append("ry");
             } else if (s.getType() == ShapeType.RECTANGLE) {

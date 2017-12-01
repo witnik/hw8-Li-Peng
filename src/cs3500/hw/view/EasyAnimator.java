@@ -8,6 +8,9 @@ import cs3500.hw.controller.SVGController;
 import cs3500.hw.controller.TextController;
 import cs3500.hw.controller.VisualController;
 import cs3500.hw.model.AnimationModel;
+import cs3500.hw.provider.procontroller.AnimationController;
+import cs3500.hw.provider.procontroller.IAnimationController;
+import cs3500.hw.provider.promodel.IAnimation;
 import cs3500.hw.provider.promodel.IAnimationAdapter;
 import cs3500.hw.provider.proview.ProviderAnimeModelBuilder;
 
@@ -28,8 +31,8 @@ public final class EasyAnimator {
   public static void main(String[] args) {
     // FILL IN HERE
     String fileName = "/Users/david.li/Documents/CS3500 HW/code 5/hw8-Li-Peng/resources/toh-3.txt";
-    String viewType = "provider";
-    String outPutFile = "/Users/david.li/Documents/oo.svg";
+    String viewType = "interactive";
+    String outPutFile = "/Users/david.li/Documents/ss.svg";
     int tickPerSecond = 20;
     IView view = new TextualView("", 1);
 
@@ -120,9 +123,11 @@ public final class EasyAnimator {
       } catch (FileNotFoundException e) {
         e.printStackTrace();
       }
+      IAnimation pModel = new IAnimationAdapter(model);
       cs3500.hw.provider.proview.IView providerView;
+      IAnimationController controller = new AnimationController(pModel, (double)tickPerSecond);
       providerView = new cs3500.hw.provider.proview.HybridView((double)tickPerSecond,
-              new IAnimationAdapter(model), outPutFile);
+              pModel, outPutFile, controller);
       providerView.outputAnimation();
     }
     else {

@@ -21,6 +21,12 @@ public interface IAnimationController {
   void toggleLooping();
 
   /**
+   * Method to set ticksPerSecond.
+   * @param ticksPerSecond new speed of animation.
+   */
+  void setTicksPerSecond(double ticksPerSecond);
+
+  /**
    * Method to export animation to SVG file.
    * @param outputFile name of file to be outputted.
    */
