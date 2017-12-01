@@ -27,10 +27,10 @@ public final class EasyAnimator {
    */
   public static void main(String[] args) {
     // FILL IN HERE
-    String fileName = "/Users/david.li/Documents/CS3500 HW/code 5/hw8-Li-Peng/resources/buildings.txt";
+    String fileName = "/Users/david.li/Documents/CS3500 HW/code 5/hw8-Li-Peng/resources/toh-3.txt";
     String viewType = "provider";
-    String outPutFile = "System.out";
-    int tickPerSecond = 10;
+    String outPutFile = "/Users/david.li/Documents/oo.svg";
+    int tickPerSecond = 20;
     IView view = new TextualView("", 1);
 
     if (args.length % 2 != 0) {

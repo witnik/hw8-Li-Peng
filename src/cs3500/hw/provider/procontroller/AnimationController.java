@@ -13,10 +13,13 @@ import cs3500.hw.view.TextualView;
 
 public class AnimationController implements IAnimationController {
   private IAnimation model;
-  private double ticksPerSecond;
+  private double ticksPerSecond = 20;
+  private IAnimation modelCopy;
 
   public AnimationController(IAnimation model, double ticksPerSecond) {
     this.model = model;
+    this.modelCopy = model;
+    this.ticksPerSecond = ticksPerSecond;
   }
 
 
@@ -37,7 +40,7 @@ public class AnimationController implements IAnimationController {
 
   @Override
   public void exportAnimation(String outputFile) {
-    SvgView temp = new SvgView(this.ticksPerSecond, this.model, outputFile);
+    SvgView temp = new SvgView(this.ticksPerSecond, this.modelCopy, outputFile);
     temp.outputAnimation();
   }
 }

@@ -55,7 +55,7 @@ public class ShapeAdapter implements IShape{
    */
   @Override
   public Color getColor() {
-    return null;
+    return new Color(shape.getRed(), shape.getGreen(), shape.getBlue());
   }
 
   /**

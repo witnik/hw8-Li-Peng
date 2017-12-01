@@ -25,7 +25,7 @@ public class IAnimationAdapter implements IAnimation {
     t = 0;
     loop = false;
     pause = false;
-    copy = model;
+    copy = model.copy();
   }
 
   @Override
