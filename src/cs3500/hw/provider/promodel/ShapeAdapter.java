@@ -11,6 +11,15 @@ public class ShapeAdapter implements IShape{
     this.shape = shape;
   }
 
+
+  /**
+   * toString method, implemented for the sake of using a JList.
+   * @return the associated name as a String
+   */
+  public String toString() {
+    return shape.getName();
+  }
+
   /**
    * printShape method.
    * @param ticksPerSecond ticks per second. If this is equal to or less than zero,

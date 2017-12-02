@@ -30,9 +30,9 @@ public final class EasyAnimator {
    */
   public static void main(String[] args) {
     // FILL IN HERE
-    String fileName = "/Users/TomPeng/Documents/github/hw8-Li-Peng/resources/toh-8.txt";
-    String viewType = "provider";
-    String outPutFile = "out2.svg";
+    String fileName = "";
+    String viewType = "";
+    String outPutFile = "System.out";
     int tickPerSecond = 9999;
     IView view = new TextualView("", 1);
 

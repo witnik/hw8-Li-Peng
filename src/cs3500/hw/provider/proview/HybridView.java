@@ -157,7 +157,6 @@ public class HybridView extends JFrame implements IView {
     this.revalidate();
     this.setVisible(true);
     this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-    this.setResizable(true);
   }
 
   /**
