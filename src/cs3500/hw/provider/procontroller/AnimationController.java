@@ -20,14 +20,14 @@ public class AnimationController implements IAnimationController {
   private IAnimation model;
   private double ticksPerSecond = 20;
   private IAnimation copy;
+  private List<IShape> shapes;
+  private List<IAction> actions;
 
   public AnimationController(IAnimation model, double ticksPerSecond) {
     this.model = model;
     this.ticksPerSecond = ticksPerSecond;
-    List<IShape> shapes = model.getShapes();
-    List<IAction> actions = model.getActions();
-    IAnimationModel temp = new AnimationModel();
-    copy = new IAnimationAdapter(temp);
+    shapes = model.getShapes();
+    actions = model.getActions();
   }
 
 
@@ -53,9 +53,16 @@ public class AnimationController implements IAnimationController {
 
   @Override
   public void exportAnimation(String outputFile) {
-    this.model.restart();
-    SvgView temp = new SvgView(this.ticksPerSecond, this.model, outputFile);
-    temp.outputAnimation();
+    IAnimationModel temp = new AnimationModel();
+    copy = new IAnimationAdapter(temp);
+    for (IShape s : this.shapes) {
+      copy.addShape(s);
+    }
+    for (IAction move:this.actions) {
+      copy.addAction(move);
+    }
+    SvgView view = new SvgView(this.ticksPerSecond, copy, outputFile);
+    view.outputAnimation();
   }
 }
 

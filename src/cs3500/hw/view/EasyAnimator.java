@@ -30,10 +30,10 @@ public final class EasyAnimator {
    */
   public static void main(String[] args) {
     // FILL IN HERE
-    String fileName = "/Users/david.li/Documents/CS3500 HW/code 5/hw8-Li-Peng/resources/toh-3.txt";
-    String viewType = "interactive";
-    String outPutFile = "/Users/david.li/Documents/ss.svg";
-    int tickPerSecond = 20;
+    String fileName = "/Users/TomPeng/Documents/github/hw8-Li-Peng/resources/toh-8.txt";
+    String viewType = "provider";
+    String outPutFile = "out2.svg";
+    int tickPerSecond = 9999;
     IView view = new TextualView("", 1);
 
     if (args.length % 2 != 0) {
