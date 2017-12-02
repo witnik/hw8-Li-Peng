@@ -183,17 +183,15 @@ public abstract class AbstractShape implements Shape {
       for (int i = temp.start - this.appears; i <= temp.end - this.appears; i++) {
         if (animationsScale[i] != null) {
           Scale s = (Scale) animationsScale[i];
-          if(s.getInfo()[0] == 0 && temp.getInfo()[1] == 0 &&
+          if (s.getInfo()[0] == 0 && temp.getInfo()[1] == 0 &&
                   temp.start == s.start && temp.end == s.end) {
             animationsScale[i] = new Scale(temp.getShape(), temp.getInfo()[0], s.getInfo()[1],
                     temp.getStart(), temp.getEnd());
-          }
-          else if (s.getInfo()[1] == 0 && temp.getInfo()[0] == 0 &&
+          } else if (s.getInfo()[1] == 0 && temp.getInfo()[0] == 0 &&
                   temp.start == s.start && temp.end == s.end) {
             animationsScale[i] = new Scale(temp.getShape(), s.getInfo()[0], temp.getInfo()[1],
                     temp.getStart(), temp.getEnd());
-          }
-          else {
+          } else {
             return false;
           }
         }
@@ -245,20 +243,20 @@ public abstract class AbstractShape implements Shape {
   /**
    * To get another shape with the same type as the Shape object.
    *
-   * @param name the name of the object
-   * @param x x position of shape
-   * @param y y position of shape
-   * @param width width of shape
-   * @param height height of shape
-   * @param cRed red color data of the shape
-   * @param cGreen green color data of the shape
-   * @param cBlue blue color data of the shape
-   * @param appears appearing time of the shape
+   * @param name       the name of the object
+   * @param x          x position of shape
+   * @param y          y position of shape
+   * @param width      width of shape
+   * @param height     height of shape
+   * @param cRed       red color data of the shape
+   * @param cGreen     green color data of the shape
+   * @param cBlue      blue color data of the shape
+   * @param appears    appearing time of the shape
    * @param disappears disappearing time of the shape
    * @return the new shape that is being constructed
    */
   public abstract Shape setShape(String name, float x, float y,
-                       float width, float height, float cRed,
-                       float cGreen, float cBlue, int appears, int disappears);
+                                 float width, float height, float cRed,
+                                 float cGreen, float cBlue, int appears, int disappears);
 
 }

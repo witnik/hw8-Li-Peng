@@ -17,7 +17,7 @@ public class SVGController implements AnimationController {
   /**
    * constructor for controller for SVG view.
    *
-   * @param view  SVG view which renders an image of anime's textual representation in svg format.
+   * @param view SVG view which renders an image of anime's textual representation in svg format.
    */
   public SVGController(SVGView view) {
     this.view = view;

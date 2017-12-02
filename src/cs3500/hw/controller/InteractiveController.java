@@ -17,7 +17,7 @@ public class InteractiveController implements AnimationController {
   private IAnimationModel model;
   private HybridView view;
   private IAnimationModel copy;
-  private int tick = 20;
+  private int tick = 1;
   private ArrayList<Shape> selected = new ArrayList<>();
   private boolean selectStatus = false;
   private boolean loop = false;

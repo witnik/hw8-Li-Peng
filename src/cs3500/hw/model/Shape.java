@@ -139,15 +139,15 @@ public interface Shape {
   /**
    * To get another shape with the same type as the Shape object.
    *
-   * @param name the name of the object
-   * @param x x position of shape
-   * @param y y position of shape
-   * @param width width of shape
-   * @param height height of shape
-   * @param cRed red color data of the shape
-   * @param cGreen green color data of the shape
-   * @param cBlue blue color data of the shape
-   * @param appears appearing time of the shape
+   * @param name       the name of the object
+   * @param x          x position of shape
+   * @param y          y position of shape
+   * @param width      width of shape
+   * @param height     height of shape
+   * @param cRed       red color data of the shape
+   * @param cGreen     green color data of the shape
+   * @param cBlue      blue color data of the shape
+   * @param appears    appearing time of the shape
    * @param disappears disappearing time of the shape
    * @return the new shape that is being constructed
    */

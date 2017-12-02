@@ -1,7 +1,5 @@
 package cs3500.hw.model;
 
-import java.awt.*;
-
 /**
  * This class extends from the AbstractShape class. This class inherent most the method and creates
  * a Rectangle object.
@@ -119,25 +117,25 @@ public class Rectangle extends AbstractShape {
   /**
    * To get another shape with the same type as the Shape object.
    *
-   * @param name the name of the object
-   * @param x x position of shape
-   * @param y y position of shape
-   * @param width width of shape
-   * @param height height of shape
-   * @param cRed red color data of the shape
-   * @param cGreen green color data of the shape
-   * @param cBlue blue color data of the shape
-   * @param appears appearing time of the shape
+   * @param name       the name of the object
+   * @param x          x position of shape
+   * @param y          y position of shape
+   * @param width      width of shape
+   * @param height     height of shape
+   * @param cRed       red color data of the shape
+   * @param cGreen     green color data of the shape
+   * @param cBlue      blue color data of the shape
+   * @param appears    appearing time of the shape
    * @param disappears disappearing time of the shape
    * @return the new shape that is being constructed
    */
   @Override
   public Shape setShape(String name, float x, float y, float width, float height,
-                       float cRed, float cGreen, float cBlue, int appears, int disappears) {
+                        float cRed, float cGreen, float cBlue, int appears, int disappears) {
 
     return new Rectangle(name, x, y,
-    width, height, cRed,
-    cGreen, cBlue, appears, disappears);
+            width, height, cRed,
+            cGreen, cBlue, appears, disappears);
   }
 
   /**

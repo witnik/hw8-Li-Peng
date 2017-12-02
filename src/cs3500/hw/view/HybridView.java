@@ -76,16 +76,16 @@ public class HybridView extends JFrame implements IView {
     list.setVisibleRowCount(names.length);
     list.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
     list.addListSelectionListener(
-            new ListSelectionListener() {
-              @Override
-              public void valueChanged(ListSelectionEvent e) {
-                int[] temp = list.getSelectedIndices();
-                selected.clear();
-                for (int i : temp) {
-                  selected.add(model1.getShapes().get(i));
-                }
-              }
-            }
+        new ListSelectionListener() {
+        @Override
+        public void valueChanged(ListSelectionEvent e) {
+          int[] temp = list.getSelectedIndices();
+          selected.clear();
+          for (int i : temp) {
+            selected.add(model1.getShapes().get(i));
+          }
+        }
+      }
     );
 
     JScrollPane top = new JScrollPane(panel);

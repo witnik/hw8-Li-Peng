@@ -8,9 +8,8 @@ import javax.swing.JOptionPane;
 import cs3500.hw.provider.promodel.IAnimation;
 
 /**
- * Created by Evan on 10/25/2017.
- * Text view implementation of the IView interface. This class will output a text file describing
- * the animation in words to the user.
+ * Created by Evan on 10/25/2017. Text view implementation of the IView interface. This class will
+ * output a text file describing the animation in words to the user.
  */
 public class TextView implements IView {
   private IAnimation model;
@@ -19,6 +18,7 @@ public class TextView implements IView {
 
   /**
    * TextView constructor.
+   *
    * @param model animation model to be rendered.
    */
   public TextView(double ticksPerSecond, IAnimation model, String outputFile) {
@@ -42,12 +42,14 @@ public class TextView implements IView {
       file.print(content);
       file.close();
     } catch (FileNotFoundException e) {
-      JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+      JOptionPane.showMessageDialog(null, e.getMessage(),
+              "Error", JOptionPane.ERROR_MESSAGE);
     }
   }
 
   /**
    * outputFile function.
+   *
    * @return a String containing a text description of the animation model.
    */
   private String getContent() {

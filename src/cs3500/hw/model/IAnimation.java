@@ -47,10 +47,9 @@ public interface IAnimation {
   AnimationType getType();
 
   /**
-   * Get a list of float of information in the animation.
-   * For Move class, get x in 0 position and y in 1 position.
-   * For Scale class, get width in 0 position and height in 1 position.
-   * For ChangeColor class, get red in 0 position, green in 1 position, and blue in 2 position.
+   * Get a list of float of information in the animation. For Move class, get x in 0 position and y
+   * in 1 position. For Scale class, get width in 0 position and height in 1 position. For
+   * ChangeColor class, get red in 0 position, green in 1 position, and blue in 2 position.
    *
    * @return the list of float of information
    */

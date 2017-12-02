@@ -1,19 +1,30 @@
 package cs3500.hw.provider.promodel;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Point;
 
 import cs3500.hw.model.Shape;
 
-public class ShapeAdapter implements IShape{
+/**
+ * This is the class of ShapeAdapter. This class is an adapter class that adapts an Shape object to
+ * an IShape object.
+ */
+public class ShapeAdapter implements IShape {
   private Shape shape;
 
-  public ShapeAdapter(Shape shape) {
+  /**
+   * The constructor of the ShapeAdapter object.
+   *
+   * @param shape the Shape object that acts as a delegate here
+   */
+  ShapeAdapter(Shape shape) {
     this.shape = shape;
   }
 
 
   /**
    * toString method, implemented for the sake of using a JList.
+   *
    * @return the associated name as a String
    */
   public String toString() {
@@ -22,8 +33,9 @@ public class ShapeAdapter implements IShape{
 
   /**
    * printShape method.
-   * @param ticksPerSecond ticks per second. If this is equal to or less than zero,
-   *                       return a description only including ticks.
+   *
+   * @param ticksPerSecond ticks per second. If this is equal to or less than zero, return a
+   *                       description only including ticks.
    * @return a string description of the shape and its properties.
    */
   @Override
@@ -33,6 +45,7 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to get name of shape.
+   *
    * @return name of shape.
    */
   @Override
@@ -42,6 +55,7 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to get height of shape.
+   *
    * @return height of shape.
    */
   @Override
@@ -51,6 +65,7 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to get width of shape.
+   *
    * @return width of shape.
    */
   @Override
@@ -60,6 +75,7 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to get color of shape.
+   *
    * @return color of shape.
    */
   @Override
@@ -69,20 +85,21 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to get ShapeType of shape.
+   *
    * @return ShapeType of shape.
    */
   @Override
   public ShapeType getType() {
-    if(shape.getType().equals(cs3500.hw.model.ShapeType.OVAL)) {
+    if (shape.getType().equals(cs3500.hw.model.ShapeType.OVAL)) {
       return ShapeType.OVAL;
-    }
-    else {
+    } else {
       return ShapeType.RECTANGLE;
     }
   }
 
   /**
    * Method to get appear time.
+   *
    * @return time at which shape will appear.
    */
   @Override
@@ -92,6 +109,7 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to get disappear time.
+   *
    * @return time at which shape will disappear.
    */
   @Override
@@ -101,6 +119,7 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to get position of shape.
+   *
    * @return position of shape.
    */
   @Override
@@ -110,28 +129,31 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to set height of shape.
+   *
    * @param height new height for shape.
    */
   @Override
   public void setHeight(int height) {
     shape.setShape(shape.getName(), shape.getX(), shape.getY(),
-            shape.getWidth(), (float)height, shape.getRed(),
+            shape.getWidth(), (float) height, shape.getRed(),
             shape.getGreen(), shape.getBlue(), shape.getAppears(), shape.getDisappears());
   }
 
   /**
    * Method to set width of shape.
+   *
    * @param width new width for shape.
    */
   @Override
   public void setWidth(int width) {
     shape.setShape(shape.getName(), shape.getX(), shape.getY(),
-            (float)width, shape.getHeight(), shape.getRed(),
+            (float) width, shape.getHeight(), shape.getRed(),
             shape.getGreen(), shape.getBlue(), shape.getAppears(), shape.getDisappears());
   }
 
   /**
    * Method to set color of shape.
+   *
    * @param color new color of shape.
    */
   @Override
@@ -145,11 +167,12 @@ public class ShapeAdapter implements IShape{
 
   /**
    * Method to set position of shape.
+   *
    * @param position new position of shape.
    */
   @Override
   public void setPosition(Point position) {
-    shape.setShape(shape.getName(), (float)position.getX(), (float)position.getY(),
+    shape.setShape(shape.getName(), (float) position.getX(), (float) position.getY(),
             shape.getWidth(), shape.getHeight(), shape.getRed(),
             shape.getGreen(), shape.getBlue(), shape.getAppears(), shape.getDisappears());
   }

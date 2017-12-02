@@ -68,7 +68,6 @@ public class SVGView extends JFrame implements IView {
    * @return the SVG format output
    */
   public String getSVG() {
-    // return this.panel.toSVG();
-    return this.panel.toLoopSVG();
+    return this.panel.toSVG();
   }
 }

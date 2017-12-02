@@ -12,6 +12,10 @@ import cs3500.hw.model.Rectangle;
 import cs3500.hw.model.Shape;
 import cs3500.hw.model.ShapeType;
 
+/**
+ * The class of IAnimationAdapter is an adapter that adapts our IAnimationModel object to their
+ * IAnimation object.
+ */
 public class IAnimationAdapter implements IAnimation {
 
   private boolean loop;
@@ -20,6 +24,11 @@ public class IAnimationAdapter implements IAnimation {
   private IAnimationModel model;
   private int t;
 
+  /**
+   * The constructor for IAnimationAdapter class.
+   *
+   * @param model the IAnimationModel that use as a delegate in this adapter
+   */
   public IAnimationAdapter(IAnimationModel model) {
     this.model = model;
     t = 0;
@@ -28,9 +37,16 @@ public class IAnimationAdapter implements IAnimation {
     copy = model.copy();
   }
 
+  /**
+   * printDescription method.
+   *
+   * @param ticksPerSecond ticks per second. If this is equal to or less than zero, return a
+   *                       description only including ticks.
+   * @return a string describing the shapes and actions contained in the animation.
+   */
   @Override
   public String printDescription(double ticksPerSecond) {
-   return modifyResult(model.toString(), (float)ticksPerSecond);
+    return modifyResult(model.toString(), (float) ticksPerSecond);
   }
 
   /**
@@ -67,6 +83,11 @@ public class IAnimationAdapter implements IAnimation {
     return "<html>" + st + "</html>";
   }
 
+  /**
+   * animationOver method.
+   *
+   * @return true if the animation has reached its end (no more actions).
+   */
   @Override
   public boolean animationOver() {
     int end = 0;
@@ -79,9 +100,12 @@ public class IAnimationAdapter implements IAnimation {
     return t >= end;
   }
 
+  /**
+   * stepForward method. Increment t by one and perform all necessary actions.
+   */
   @Override
   public void stepForward() {
-    if(!this.pause) {
+    if (!this.pause) {
       ArrayList<Shape> shapes = model.copy().getShapes();
       ArrayList<cs3500.hw.model.IAnimation> moves = model.copy().getAnimation();
       for (int i = 0; i < shapes.size(); i++) {
@@ -132,7 +156,7 @@ public class IAnimationAdapter implements IAnimation {
 
       model.setShapes(shapes);
       t++;
-      if(this.animationOver() && this.loop) {
+      if (this.animationOver() && this.loop) {
         model = copy.copy();
         t = 0;
       }
@@ -140,8 +164,8 @@ public class IAnimationAdapter implements IAnimation {
   }
 
   /**
-   * This is a EndComparator class that implements Comparator interface. This method can help
-   * to sort the list with the object end in last placed in last.
+   * This is a EndComparator class that implements Comparator interface. This method can help to
+   * sort the list with the object end in last placed in last.
    */
   private class EndComparator implements Comparator<Shape> {
     /**
@@ -156,89 +180,129 @@ public class IAnimationAdapter implements IAnimation {
     }
   }
 
+  /**
+   * addShape function. Change from original interface/model-- This change was something that came
+   * up in the self-eval and will make the model more flexible in general
+   *
+   * @param shape shape to be added to AnimationModel instance.
+   */
   @Override
   public void addShape(IShape shape) throws IllegalArgumentException {
     float[] all = new float[3];
     shape.getColor().getColorComponents(all);
-    if(shape.getType().equals(cs3500.hw.provider.promodel.ShapeType.RECTANGLE)) {
-      model.addShape(new Rectangle(shape.getName(), (float)shape.getPosition().getX(),
-              (float)shape.getPosition().getY(), (float)shape.getWidth(), (float)shape.getHeight(),
+    if (shape.getType().equals(cs3500.hw.provider.promodel.ShapeType.RECTANGLE)) {
+      model.addShape(new Rectangle(shape.getName(), (float) shape.getPosition().getX(),
+              (float) shape.getPosition().getY(), (float) shape.getWidth(),
+              (float) shape.getHeight(),
               all[0], all[1], all[2], shape.getAppear(), shape.getDisappear()));
-    }
-    else {
-      model.addShape(new Oval(shape.getName(), (float)shape.getPosition().getX(),
-              (float)shape.getPosition().getY(), (float)shape.getWidth(), (float)shape.getHeight(),
+    } else {
+      model.addShape(new Oval(shape.getName(), (float) shape.getPosition().getX(),
+              (float) shape.getPosition().getY(), (float) shape.getWidth(),
+              (float) shape.getHeight(),
               all[0], all[1], all[2], shape.getAppear(), shape.getDisappear()));
     }
   }
 
+  /**
+   * addAction function. Change from original interface/model-- This change was something that came
+   * up in the self-eval and will make the model more flexible in general
+   *
+   * @param action action to be added to AnimationModel instance.
+   */
   @Override
   public void addAction(IAction action) throws IllegalArgumentException {
 
-    if(action.getType().equals(ActionType.WIDTH)) {
+    if (action.getType().equals(ActionType.WIDTH)) {
       model.scale(model.getShape(action.getShapeName()), action.getNum(), 0,
               action.getStart(), action.getEnd());
-    }
-    else if(action.getType().equals(ActionType.HEIGHT)) {
+    } else if (action.getType().equals(ActionType.HEIGHT)) {
       model.scale(model.getShape(action.getShapeName()), 0, action.getNum(),
               action.getStart(), action.getEnd());
-    }
-    else if(action.getType().equals(ActionType.POSITION)) {
-      model.move(model.getShape(action.getShapeName()), (float)action.getPosition().getX(),
-              (float)action.getPosition().getY(), action.getStart(), action.getEnd());
-    }
-    else {
-      float[]all = new float[3];
+    } else if (action.getType().equals(ActionType.POSITION)) {
+      model.move(model.getShape(action.getShapeName()), (float) action.getPosition().getX(),
+              (float) action.getPosition().getY(), action.getStart(), action.getEnd());
+    } else {
+      float[] all = new float[3];
       action.getColor().getColorComponents(all);
-      model.changeColor(model.getShape(action.getShapeName()), (float)all[0], (float)all[2],
-              (float)all[1], action.getStart(), action.getEnd());
+      model.changeColor(model.getShape(action.getShapeName()), (float) all[0], (float) all[2],
+              (float) all[1], action.getStart(), action.getEnd());
     }
   }
 
+  /**
+   * getShapes method.
+   *
+   * @return list of shapes in animation
+   */
   @Override
   public List<IShape> getShapes() {
     List<IShape> result = new ArrayList<>();
-    for(Shape s: model.getShapes()) {
+    for (Shape s : model.getShapes()) {
       result.add(new ShapeAdapter(s));
     }
     return result;
   }
 
+  /**
+   * getActions method.
+   *
+   * @return list of actions in animation
+   */
   @Override
   public List<IAction> getActions() {
     List<IAction> result = new ArrayList<>();
-    for(cs3500.hw.model.IAnimation a: model.getAnimation()) {
+    for (cs3500.hw.model.IAnimation a : model.getAnimation()) {
       result.add(new ActionAdapter(a));
     }
     return result;
   }
 
+  /**
+   * findActionsForShape method.
+   *
+   * @param name name of shape to find actions for.
+   * @return list of actions associated with given shape name.
+   */
   @Override
   public List<IAction> getShapeActions(String name, List<IAction> actions) {
     ArrayList<IAction> result = new ArrayList<>();
-    for(IAction a: actions) {
-      if(a.getShapeName().equals(name)){
+    for (IAction a : actions) {
+      if (a.getShapeName().equals(name)) {
         result.add(a);
       }
     }
     return result;
   }
 
+  /**
+   * method to toggle if the animation loops.
+   */
   @Override
   public void toggleLooping() {
     this.loop = !loop;
   }
 
+  /**
+   * getter for the looping boolean.
+   *
+   * @return this.looping
+   */
   @Override
   public boolean isLooping() {
     return this.loop;
   }
 
+  /**
+   * method to toggle if the animation is paused.
+   */
   @Override
   public void togglePaused() {
     this.pause = !pause;
   }
 
+  /**
+   * method to restart the animation at any time.
+   */
   @Override
   public void restart() {
     model = copy.copy();

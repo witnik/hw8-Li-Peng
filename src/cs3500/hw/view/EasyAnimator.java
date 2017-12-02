@@ -33,7 +33,7 @@ public final class EasyAnimator {
     String fileName = "";
     String viewType = "";
     String outPutFile = "System.out";
-    int tickPerSecond = 9999;
+    int tickPerSecond = 20;
     IView view = new TextualView("", 1);
 
     if (args.length % 2 != 0) {
@@ -116,8 +116,7 @@ public final class EasyAnimator {
       InteractiveController controller = new InteractiveController(model, (HybridView) view);
       controller.setOutPutFile(outPutFile);
       controller.execute();
-    }
-    else if (viewType.compareToIgnoreCase("provider") == 0) {
+    } else if (viewType.compareToIgnoreCase("provider") == 0) {
       try {
         model = fileReader.readFile(fileName, new ProviderAnimeModelBuilder());
       } catch (FileNotFoundException e) {
@@ -125,12 +124,11 @@ public final class EasyAnimator {
       }
       IAnimation pModel = new IAnimationAdapter(model);
       cs3500.hw.provider.proview.IView providerView;
-      IAnimationController controller = new AnimationController(pModel, (double)tickPerSecond);
-      providerView = new cs3500.hw.provider.proview.HybridView((double)tickPerSecond,
+      IAnimationController controller = new AnimationController(pModel, (double) tickPerSecond);
+      providerView = new cs3500.hw.provider.proview.HybridView((double) tickPerSecond,
               pModel, outPutFile, controller);
       providerView.outputAnimation();
-    }
-    else {
+    } else {
       view.showError("Input view Type is invalid");
       System.exit(-1);
     }

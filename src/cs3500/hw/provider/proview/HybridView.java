@@ -30,12 +30,10 @@ import cs3500.hw.provider.procontroller.IAnimationController;
 import cs3500.hw.provider.promodel.IAnimation;
 import cs3500.hw.provider.promodel.IShape;
 import cs3500.hw.provider.promodel.ShapeType;
-import cs3500.hw.provider.proview.IView;
 
 /**
- * Created by Evan on 11/8/2017.
- * HybridView class for the animation. Displays a window containing a VisualView
- * and a panel with options to control the animation.
+ * Created by Evan on 11/8/2017. HybridView class for the animation. Displays a window containing a
+ * VisualView and a panel with options to control the animation.
  */
 public class HybridView extends JFrame implements IView {
   private double ticksPerSecond = 1;
@@ -45,9 +43,10 @@ public class HybridView extends JFrame implements IView {
 
   /**
    * Constructor for a HybridView.
+   *
    * @param ticksPerSecond speed of animation
-   * @param model IAnimation to be animated
-   * @param outputFile name of file to export SVG to
+   * @param model          IAnimation to be animated
+   * @param outputFile     name of file to export SVG to
    */
   public HybridView(double ticksPerSecond, IAnimation model, String outputFile,
                     IAnimationController controller) {
@@ -62,7 +61,7 @@ public class HybridView extends JFrame implements IView {
       @Override
       protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        drawShapes(model.getShapes(), (Graphics2D)g);
+        drawShapes(model.getShapes(), (Graphics2D) g);
         model.stepForward();
         this.revalidate();
       }
@@ -96,7 +95,7 @@ public class HybridView extends JFrame implements IView {
       }
     });
     JLabel speedLabel = new JLabel("Speed:");
-    JTextField speed = new JTextField(Integer.toString((int)this.ticksPerSecond), 5);
+    JTextField speed = new JTextField(Integer.toString((int) this.ticksPerSecond), 5);
     speed.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
@@ -160,7 +159,8 @@ public class HybridView extends JFrame implements IView {
   }
 
   /**
-   * outputAnimation function. Creates a window and draws the animation based on the AnimationModel.
+   * outputAnimation function. Creates a window and draws the animation based on the
+   * AnimationModel.
    */
   public void outputAnimation() {
     Timer t = new Timer((int) (1000 / this.ticksPerSecond), new ActionListener() {
@@ -171,12 +171,13 @@ public class HybridView extends JFrame implements IView {
     });
     t.start();
     while (true) {
-      t.setDelay((int)(1000 / this.ticksPerSecond));
+      t.setDelay((int) (1000 / this.ticksPerSecond));
     }
   }
 
   /**
    * drawShapes function. Iterates through a given list of shapes and draws each one.
+   *
    * @param shapes List of shapes to be drawn.
    */
   private void drawShapes(List<IShape> shapes, Graphics2D g) {
@@ -192,7 +193,8 @@ public class HybridView extends JFrame implements IView {
                   s.getWidth(), s.getHeight());
         }
         if ((s.getPosition().getX() + s.getWidth()) > animationView.getPreferredSize().getWidth()) {
-          animationView.setPreferredSize(new Dimension((int) s.getPosition().getX() + s.getWidth(),
+          animationView.setPreferredSize(new Dimension(
+                  (int) s.getPosition().getX() + s.getWidth(),
                   (int) animationView.getPreferredSize().getHeight()));
         }
         if ((s.getPosition().getY()
@@ -208,6 +210,7 @@ public class HybridView extends JFrame implements IView {
 
   /**
    * setter for ticksPerSecond.
+   *
    * @param ticks value to set ticksPerSecond to
    */
   public void setTicksPerSecond(double ticks) {
@@ -217,6 +220,7 @@ public class HybridView extends JFrame implements IView {
 
   /**
    * method to disable a selected shape in the animation.
+   *
    * @param name name of the shape to be disabled
    */
   private void disableShape(String name) {
@@ -227,6 +231,7 @@ public class HybridView extends JFrame implements IView {
 
   /**
    * method to enable a selected shape in the animation.
+   *
    * @param name name of the shape to be enabled
    */
   private void enableShape(String name) {

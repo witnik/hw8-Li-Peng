@@ -1,8 +1,7 @@
 package cs3500.hw.provider.procontroller;
 
 /**
- * Created by Evan on 11/27/2017.
- * Interface for the Animator Controller
+ * Created by Evan on 11/27/2017. Interface for the Animator Controller
  */
 public interface IAnimationController {
   /**
@@ -22,12 +21,14 @@ public interface IAnimationController {
 
   /**
    * Method to set ticksPerSecond.
+   *
    * @param ticksPerSecond new speed of animation.
    */
   void setTicksPerSecond(double ticksPerSecond);
 
   /**
    * Method to export animation to SVG file.
+   *
    * @param outputFile name of file to be outputted.
    */
   void exportAnimation(String outputFile);

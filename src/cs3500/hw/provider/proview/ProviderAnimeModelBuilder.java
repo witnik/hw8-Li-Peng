@@ -5,11 +5,15 @@ import cs3500.hw.model.Shape;
 import cs3500.hw.view.AnimeModelBuilder;
 import cs3500.hw.view.TweenModelBuilder;
 
-public class ProviderAnimeModelBuilder extends AnimeModelBuilder{
+/**
+ * The ProviderAnimeModelBuilder class that extends AnimeModelBuilder class. A model builder for
+ * providers' code.
+ */
+public class ProviderAnimeModelBuilder extends AnimeModelBuilder {
   private AnimationModel model;
 
   /**
-   * This is the constructor for AnimeModelBuilder.
+   * This is the constructor for ProviderAnimeModelBuilder.
    */
   public ProviderAnimeModelBuilder() {
     super();
@@ -17,7 +21,8 @@ public class ProviderAnimeModelBuilder extends AnimeModelBuilder{
   }
 
   /**
-   * This is the alternate constructor for AnimeModelBuilder. This constrctur takes in a model.
+   * This is the alternate constructor for ProviderAnimeModelBuilder. This constructor takes in a
+   * model.
    *
    * @param model model that will be construct
    */
@@ -45,7 +50,7 @@ public class ProviderAnimeModelBuilder extends AnimeModelBuilder{
                                                             float fromSy, float toSx, float toSy,
                                                             int startTime, int endTime) {
     Shape s = this.model.getShape(name);
-    if(toSx != 0 && toSy != 0) {
+    if (toSx != 0 && toSy != 0) {
       this.model.scale(s, toSx, 0.0f, startTime, endTime);
       this.model.scale(s, 0.0f, toSy, startTime, endTime);
     }
